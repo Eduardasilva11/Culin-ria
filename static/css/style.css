@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+}
+
+.profile-column {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.main-column {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+.login-column {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+footer {
+    grid-column: 1 / span 3;
+    grid-row: 3;
+    background-color: #D97014;
+    color: #FFFFFF;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile .logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.divider {
+    height: 2px;
+    background-color: #D97014;
+    margin: 10px 0;
+}
+
+.stats {
+    margin-top: 15px;
+}
+
+.stats p {
+    margin: 5px 0;
+}
+
+.main-title {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.publications {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.publication {
+    background-color: white;
+    border: 1px solid #C2BEBE;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.publication-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.publication h3 {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.location {
+    color: #666;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.interactions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.interactions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.login-button {
+    background-color: #D97014;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.cancel-button {
+    background: none;
+    border: 1px solid #D97014;
+    color: #D97014;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-submit {
+    background-color: #D97014;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Estilo para quando o usuário está logado */
+.logged-in .profile {
+    text-align: left;
+}
+
+.logged-in .profile .logo {
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    float: left;
+}
+
+.logged-in .profile h2 {
+    margin-top: 10px;
+}
+
+.user-info {
+    overflow: hidden;
+}
+
+/* Estilos para o modal de comentários */
+.comment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-list {
+    margin: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.comment-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-header small {
+    color: #666;
+    font-size: 0.8em;
+}
+
+.comment-content {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.comment-form {
+    margin-top: 15px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.comment-submit, .comment-cancel {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-submit {
+    background-color: #D97014;
+    color: white;
+}
+
+.comment-submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.comment-cancel {
+    background-color: #f0f0f0;
+}
+
+.edit-comment-text {
+    width: 100%;
+    height: 80px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.save-edit, .cancel-edit {
+    padding: 5px 10px;
+    font-size: 0.9em;
+}
+
+.save-edit {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.cancel-edit {
+    background-color: #f44336;
+    color: white;
+}
+
+.no-comments {
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+.error-message {
+    color: #f44336;
+    text-align: center;
+}

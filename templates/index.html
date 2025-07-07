@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor do Brasil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Coluna 1: Perfil -->
+        <div class="profile-column">
+            <div class="profile">
+                <img src="/static/images/logo_sabor_do_brasil.png" alt="Logo Sabor do Brasil" class="logo">
+                <h2>Sabor do Brasil</h2>
+                <div class="divider"></div>
+                <div class="stats">
+                    <p>Likes: <span id="total-likes">0</span></p>
+                    <p>Dislikes: <span id="total-dislikes">0</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna 2: Publicações -->
+        <div class="main-column">
+            <h1 class="main-title">Pratos Gastronômicos</h1>
+            <div class="publications">
+                <!-- Prato 1 -->
+                <div class="publication" data-id="1">
+                    <img src="/static/images/prato1.jpg" alt="Prato 1" class="publication-image">
+                    <h3>Feijoada Completa</h3>
+                    <p class="location">São Paulo - SP</p>
+                    <div class="interactions">
+                        <button class="like-btn">
+                            <span class="like-count">0</span> 👍
+                        </button>
+                        <button class="dislike-btn">
+                            <span class="dislike-count">0</span> 👎
+                        </button>
+                        <button class="comment-btn">
+                            <span class="comment-count">0</span> 💬
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prato 2 -->
+                <div class="publication" data-id="2">
+                    <img src="/static/images/prato2.jpg" alt="Prato 2" class="publication-image">
+                    <h3>Moqueca de Peixe</h3>
+                    <p class="location">Salvador - BA</p>
+                    <div class="interactions">
+                        <button class="like-btn">
+                            <span class="like-count">0</span> 👍
+                        </button>
+                        <button class="dislike-btn">
+                            <span class="dislike-count">0</span> 👎
+                        </button>
+                        <button class="comment-btn">
+                            <span class="comment-count">0</span> 💬
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prato 3 -->
+                <div class="publication" data-id="3">
+                    <img src="/static/images/prato3.jpg" alt="Prato 3" class="publication-image">
+                    <h3>Churrasco Gaúcho</h3>
+                    <p class="location">Porto Alegre - RS</p>
+                    <div class="interactions">
+                        <button class="like-btn">
+                            <span class="like-count">0</span> 👍
+                        </button>
+                        <button class="dislike-btn">
+                            <span class="dislike-count">0</span> 👎
+                        </button>
+                        <button class="comment-btn">
+                            <span class="comment-count">0</span> 💬
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna 3: Login -->
+        <div class="login-column">
+            <button id="login-btn" class="login-button">Entrar</button>
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>Sabor do Brasil</p>
+            <div class="social-icons">
+                <span>📷</span>
+                <span>🐦</span>
+                <span>📱</span>
+                <span>🌐</span>
+            </div>
+            <p>Copyright - 2024</p>
+        </footer>
+    </div>
+
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancel-btn" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="login-submit">Entrar</button>
+                </div>
+            </form>
+            <p id="error-message" class="error-message"></p>
+            <p>Não tem conta? <a href="#" id="register-link">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <h2>Cadastro</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-name">Nome:</label>
+                    <input type="text" id="reg-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email:</label>
+                    <input type="email" id="reg-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Senha:</label>
+                    <input type="password" id="reg-password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancel-reg-btn" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="login-submit">Cadastrar</button>
+                </div>
+            </form>
+            <p id="reg-error-message" class="error-message"></p>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
